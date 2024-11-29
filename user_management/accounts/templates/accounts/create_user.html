@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+    <title>Create User</title>
+    <!-- {% load static %}
+    <link rel="stylesheet" href="{% static 'styles.css' %}"> -->
+    <style>
+        /* General body styles */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f9;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        /* Container for the form */
+        .container {
+            width: 100%;
+            max-width: 500px;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Heading style */
+        h2 {
+            font-size: 24px;
+            color: #333;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        /* Form group styling for each input field */
+        .form-group {
+            margin-bottom: 15px;
+            text-align: left;
+        }
+
+        .form-group label {
+            font-size: 16px;
+            color: #333;
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        .form-group input {
+            width: 100%;
+            padding: 10px;
+            font-size: 16px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            margin-bottom: 10px;
+        }
+
+        /* Styling for the submit button */
+        .submit-btn {
+            width: 100%;
+            padding: 12px;
+            font-size: 16px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .submit-btn:hover {
+            background-color: #0056b3;
+        }
+
+        /* Back to user list link */
+        .back-btn {
+            display: inline-block;
+            text-decoration: none;
+            color: #007bff;
+            font-size: 16px;
+            text-align: center;
+            margin-top: 10px;
+        }
+
+        .back-btn:hover {
+            text-decoration: underline;
+        }
+
+        /* Responsive styles */
+        @media (max-width: 768px) {
+            .container {
+                width: 90%;
+                padding: 15px;
+            }
+        }
+    </style>
+    
+</head>
+<body>
+    <div class="container">
+        <h2>Create New User</h2>
+        <form method="POST">
+             {% csrf_token %}
+             <div class="form-group">
+                <label for="username">Username:</label>
+                {{ form.username }}
+                {% if form.username.errors %}
+                    <ul>
+                        {% for error in form.username.errors %}
+                           <li style="color: red;">{{ error }}</li>
+                         {% endfor %}
+                    </ul>
+                {% endif %}
+             </div>
+                
+             <div class="form-group">
+                <label for="email">Email:</label>
+                {{ form.email }}
+                {% if form.email.errors %}
+                    <ul>
+                        {% for error in form.email.errors %}
+                           <li style="color: red;">{{ error }}</li>
+                        {% endfor %}
+                    </ul>
+                {% endif %}
+             </div>
+            
+             
+             <div class="form-group">
+                <label for="password">Password:</label>
+                {{ form.password }}
+                {% if form.password.errors %}
+                    <ul>
+                        {% for error in form.password.errors %}
+                           <li style="color: red;">{{ error }}</li>
+                        {% endfor %}
+                    </ul>
+                {% endif %}
+             </div>
+             
+             
+             <button type="submit" class="submit-btn">Create User</button>
+        </form>
+        <a href="{% url 'user_list' %}" class="back-btn">Back to user list</a>
+    </div>
+</body>
+</html>

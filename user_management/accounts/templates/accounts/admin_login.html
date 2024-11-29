@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+    <title>Admin Login</title>
+    <!-- {% load static %}
+    <link rel="stylesheet" href="{% static 'styles.css' %}"> -->
+    <style>
+        /* Reset default margin and padding */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* Body styles */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f9;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        /* Form container styles */
+        .form-container {
+            width: 100%;
+            max-width: 400px;
+            background-color: #fff;
+            padding: 25px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Title style */
+        h2 {
+            color: #333;
+            text-align: center;
+            font-size: 24px;
+            margin-bottom: 30px; /* Increased margin below title */
+        }
+
+        /* Label and input field spacing */
+        .form-container label {
+            display: block;
+            margin-bottom: 8px; /* More space between label and input field */
+            font-size: 16px;
+            color: #333;
+        }
+
+        /* Form elements */
+        .form-container input,
+        .form-container button {
+            width: 100%;
+            padding: 12px; /* Increased padding inside inputs and buttons */
+            margin-bottom: 15px; /* Space between form elements */
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+
+        .form-container button {
+            background-color: #007bff;
+            color: white;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        .form-container button:hover {
+            background-color: #0056b3;
+        }
+
+        /* Link styles */
+        a {
+            text-decoration: none;
+            color: #007bff;
+            font-size: 16px;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        /* Add extra space between the "Already have an account?" link and the form */
+        .form-container p {
+            text-align: center;
+            margin-top: 20px;
+            font-size: 16px;
+        }
+
+        /* Responsive styles */
+        @media (max-width: 768px) {
+            .form-container {
+                width: 95%;
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="form-container">
+        <h2>Admin Login</h2>
+        <form method="POST">
+            {% csrf_token %}
+            <label for="username">Username</label>
+            <input type="text" name="username" required>
+            <label for="password">Password</label>
+            <input type="password" name="password" required>
+            <button type="submit">Login</button>
+        </form>
+    </div>
+</body>
+</html>
